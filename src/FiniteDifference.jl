@@ -27,7 +27,7 @@ include("stencils.jl")
 """
     interpolate(xpts, floc, x)
 
-Compute the first derivative of discrete function `floc` at point `at`.
+Interpolate `floc` defined on `xpts` at `x`.
 Reference:
 1). Berrut, J., and Trefethen, L. N., 2004. Barycentric Lagrange Interpolation, SIAM REVIEW
 Vol. 46, No. 3, pp. 501–517.
