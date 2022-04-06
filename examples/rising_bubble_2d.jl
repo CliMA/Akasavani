@@ -97,15 +97,12 @@ nfaces = Grid.nfaces(solver.grid)
 # bottom boundary conditions
 bc.ρuₕ[:, 1, :, :] .= BCs.bc_type(FreeSlip()) # no flux for velocity
 bc.ρuᵥ[:, 1, :, :] .= BCs.bc_type(FreeSlip()) # no flux for velocity
-bc.ρe[:, 1, :, :]  .= BCs.bc_type(Neumann())  # no flux for energy 
+bc.ρe[:, 1, :, :] .= BCs.bc_type(Neumann())  # no flux for energy 
 # top boundary conditions
 bc.ρuₕ[:, ncenter, :, :] .= BCs.bc_type(FreeSlip()) # no flux for velocity
 bc.ρuᵥ[:, nfaces, :, :] .= BCs.bc_type(FreeSlip()) # no flux for velocity
-bc.ρe[:, ncenter, :, :]  .= BCs.bc_type(Neumann())  # no flux for energy 
+bc.ρe[:, ncenter, :, :] .= BCs.bc_type(Neumann())  # no flux for energy 
 
 BCs.enforce_fd_bc!(solver.state, solver.state_bc, solver.state_bcval, solver.grid)
 
 write_vtk("state", solver.vtk_info, solver.grid, solver.state)
-
-
-
