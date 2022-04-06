@@ -103,13 +103,13 @@ end
     FT = Float64
     npts = 5
     pt = 3
-    x, _ = lglpoints(FT, npts-1)
+    x, _ = lglpoints(FT, npts - 1)
     # stencil for second order central difference
     cfds = CentralFD(4, npts)
     st, en, at = get_stencil(cfds, pt)
     # exact coefficients
     D = Basis.spectralderivative(x)
-    D2 = (D * D)[at, :]
+    D2 = (D*D)[at, :]
     D = D[at, :]
 
     @test fd_d1_coeff(x, at) ≈ D # first derivative

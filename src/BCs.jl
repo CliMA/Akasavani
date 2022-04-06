@@ -38,10 +38,10 @@ function enforce_fd_bc!(
     ncenter = Grid.ncenter(grid)
     nldof = Grid.nlocaldof(grid)
 
-@show (nelems, nfaces, ncenter)
-    
-    for el in 1:nelems
-        for ldof in 1:nldof
+    @show (nelems, nfaces, ncenter)
+
+    for el = 1:nelems
+        for ldof = 1:nldof
 
         end
     end

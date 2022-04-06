@@ -126,8 +126,8 @@ function setup_2d_hybrid_mesh!(
     ftpxv1d!(c_∂xᵥ∂x₁_top, view(vert_center, :, ncenter, :), b1d, :g1, :∂ξ₁, false)
     c_∂xᵥ∂x₁_top .*= ∂ξ₁∂x₁
 
-    for elem in 1:nelems
-        for ldof in 1:nldof1
+    for elem = 1:nelems
+        for ldof = 1:nldof1
             # bottom, cell grid
             scale = FT(1) / sqrt(c_∂xᵥ∂x₁_bot[ldof, elem]^2 + 1)
             fd_normal_center[ldof, 1, 1, elem] = scale * c_∂xᵥ∂x₁_bot[ldof, elem]
